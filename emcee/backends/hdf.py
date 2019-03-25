@@ -178,6 +178,7 @@ class HDFBackend(Backend):
         self._check(state, accepted)
 
         with self.open("a") as f:
+            f.swmr_mode = True
             g = f[self.name]
             iteration = g.attrs["iteration"]
 
