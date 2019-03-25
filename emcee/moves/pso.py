@@ -14,10 +14,15 @@ class PSOMove(object):
     """
     This is a modified charged accelerated PSO
     """
-    def __init__(self,tol_norm=1e-5):
+    def __init__(self,tol_norm=1e-5,distance_balance=1e-10):
+        '''
+        Arguments:
+        tol_norm:             Relative tolerance of mean norm
+        distance_balance:     Distance at which repulsive and attracting forces are equal
+        '''
 
         #----- Convergence criteria ----------------
-        self.tol_norm    = tol_norm     # Relative tolerance of mean norm
+        self.tol_norm    = tol_norm 
         #-------------------------------------
 
         #----- This is PSO of Clerc and Kennedy 2002 
@@ -28,7 +33,7 @@ class PSOMove(object):
 
         #------------------------ Modified accelerated PSO of Blackwell Bently  -------------------------------------------------
         self.distance_core    = 1e-50  # Min relative distance at which accelerations turns to zero to avoid infinities.
-        self.distance_balance = 1e-8   # Distance at which repulsive and attracting forces are equal
+        self.distance_balance = distance_balance   
         
         # Force inversely proportional to the distance
         self.c3 = 0.5*(self.c1+self.c2)*(self.distance_balance**2)  # constant to balance forces, independent in each dimension.
