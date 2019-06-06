@@ -93,7 +93,11 @@ class PSOMove(object):
             #--------------------------------------------------------
 
             #-------- Valid particles for acceleration ---------------
-            valid    = np.where((np.abs(rho) > self.distance_core))[0]
+            # Only finite elements
+            idx_valid = np.isfinite(rho) 
+            # And only those whose distance is larger than core distance
+            idx_gt_core = np.where((np.abs(rho[idx_valid]) > self.distance_core))[0]
+            valid       = idx_valid[idx_gt_core]
             #---------------------------------------------------------
 
             # To balance the forces, the constant c3 must be multiplied by position**3.
