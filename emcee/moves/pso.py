@@ -14,7 +14,7 @@ class PSOMove(object):
     """
     This is a modified charged accelerated PSO
     """
-    def __init__(self,tol_norm=1e-5,distance_balance=1e-10):
+    def __init__(self,tol_fit=1e-5,tol_norm=1e-1,distance_balance=1e-8):
         '''
         Arguments:
         tol_norm:             Relative tolerance of mean norm
@@ -22,7 +22,8 @@ class PSOMove(object):
         '''
 
         #----- Convergence criteria ----------------
-        self.tol_norm    = tol_norm 
+        self.tol_norm       = tol_norm
+        self.tol_fit        = tol_fit 
         #-------------------------------------
 
         #----- This is PSO of Clerc and Kennedy 2002 
@@ -132,12 +133,19 @@ class PSOMove(object):
         return new_state
 
     def converged(self,state):
-        converged = state.norm < self.tol_norm
-        return converged
+        converged_norm = state.norm < self.tol_norm
+        #----------- Fit ----------------------------------
+        diffs = (state.log_prob-state.gbest_logprob)/state.gbest_logprob
+        diffs = diffs[np.isfinite(diffs)]
+        norm_fit  = np.mean(list(map(np.linalg.norm, diffs)))
+        converged_fit  = norm_fit < self.tol_fit
+        return converged_norm & converged_fit
     
     def state_norm(self,state):
-        diffs = np.abs(state.coords-state.gbest_coords)#/state.gbest_coords
-        norm  = np.mean(np.linalg.norm(diffs,axis=1))
+        diffs = (state.coords-state.gbest_coords)/state.gbest_coords
+        idx_valid = np.where(np.abs(state.gbest_coords) > self.tol_norm)[0]
+        diffs = diffs[:,idx_valid]
+        norm  = np.mean(list(map(np.linalg.norm, diffs)))
         return norm
 
     

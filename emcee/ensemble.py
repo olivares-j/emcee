@@ -372,7 +372,8 @@ class EnsembleSampler(object):
         if np.any(np.isinf(p)):
             raise ValueError("At least one parameter value was infinite")
         if np.any(np.isnan(p)):
-            raise ValueError("At least one parameter value was NaN")
+            idx_nan = np.where(np.isnan(p))[0]
+            raise ValueError("The following parameters were NaN: {0}".format(idx_nan))
 
         # Run the log-probability calculations (optionally in parallel).
         if self.vectorize:
