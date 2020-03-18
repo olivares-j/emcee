@@ -1,12 +1,12 @@
 .. module:: emcee
 
-.. _moves:
+.. _moves-user:
 
 Moves
 =====
 
 emcee was originally built on the "stretch move" ensemble method from `Goodman
-& Weare (2010) <http://msp.berkeley.edu/camcos/2010/5-1/p04.xhtml>`_, but
+& Weare (2010) <https://msp.org/camcos/2010/5-1/p04.xhtml>`_, but
 starting with version 3, emcee nows allows proposals generated from a mixture
 of "moves".
 This can be used to get a more efficient sampler for models where the stretch
@@ -44,6 +44,9 @@ proposals.
 :class:`moves.MHMove` is the base class for this type of move and a concrete
 implementation of a Gaussian Metropolis proposal is found in
 :class:`moves.GaussianMove`.
+
+.. note:: The :ref:`moves` tutorial shows a concrete example of how to use
+    this interface.
 
 Ensemble moves
 --------------

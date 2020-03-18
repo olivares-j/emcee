@@ -3,29 +3,29 @@ emcee
 
 **emcee** is an MIT licensed pure-Python implementation of Goodman & Weare's
 `Affine Invariant Markov chain Monte Carlo (MCMC) Ensemble sampler
-<http://msp.berkeley.edu/camcos/2010/5-1/p04.xhtml>`_ and these pages will
+<https://msp.berkeley.edu/camcos/2010/5-1/p04.xhtml>`_ and these pages will
 show you how to use it.
 
 This documentation won't teach you too much about MCMC but there are a lot
 of resources available for that (try `this one
-<http://www.inference.org.uk/mackay/itprnn/book.html>`_).
-We also `published a paper <http://arxiv.org/abs/1202.3665>`_ explaining
+<https://www.inference.org.uk/mackay/itprnn/book.html>`_).
+We also `published a paper <https://arxiv.org/abs/1202.3665>`_ explaining
 the emcee algorithm and implementation in detail.
 
-emcee has been used in `quite a few projects in the astrophysical literature
-<testimonials>`_ and it is being actively developed on `GitHub
+emcee has been used in :doc:`quite a few projects in the astrophysical literature
+<testimonials>` and it is being actively developed on `GitHub
 <https://github.com/dfm/emcee>`_.
 
 .. image:: https://img.shields.io/badge/GitHub-dfm%2Femcee-blue.svg?style=flat
     :target: https://github.com/dfm/emcee
-.. image:: http://img.shields.io/travis/dfm/emcee/master.svg?style=flat
-    :target: http://travis-ci.org/dfm/emcee
+.. image:: https://img.shields.io/travis/dfm/emcee/master.svg?style=flat
+    :target: https://travis-ci.org/dfm/emcee
 .. image:: https://ci.appveyor.com/api/projects/status/p8smxvleh8mrcn6m?svg=true&style=flat
     :target: https://ci.appveyor.com/project/dfm/emcee
-.. image:: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
     :target: https://github.com/dfm/emcee/blob/master/LICENSE
-.. image:: http://img.shields.io/badge/arXiv-1202.3665-orange.svg?style=flat
-    :target: http://arxiv.org/abs/1202.3665
+.. image:: https://img.shields.io/badge/arXiv-1202.3665-orange.svg?style=flat
+    :target: https://arxiv.org/abs/1202.3665
 .. image:: https://coveralls.io/repos/github/dfm/emcee/badge.svg?branch=master&style=flat
     :target: https://coveralls.io/github/dfm/emcee?branch=master
 
@@ -60,12 +60,17 @@ How to Use This Guide
 To start, you're probably going to need to follow the :ref:`install` guide to
 get emcee installed on your computer.
 After you finish that, you can probably learn most of what you need from the
-from the tutorials listed below (you might want to start with
-:ref:`quickstart` and go form there).
+tutorials listed below (you might want to start with
+:ref:`quickstart` and go from there).
 If you need more details about specific functionality, the User Guide below
 should have what you need.
-If you run into any issues, please don't hesitate to `open an issue on GitHub
-<https://github.com/dfm/emcee/issues>`_.
+
+We welcome bug reports, patches, feature requests, and other comments via `the GitHub
+issue tracker <https://github.com/dfm/emcee/issues>`_, but you should check out the
+`contribution guidelines <https://github.com/dfm/emcee/blob/master/CONTRIBUTING.md>`_
+first.
+If you have a question about the use of emcee, please post it to `the users list
+<https://groups.google.com/forum/#!forum/emcee-users>`_ instead of the issue tracker.
 
 
 .. toctree::
@@ -90,26 +95,21 @@ If you run into any issues, please don't hesitate to `open an issue on GitHub
    tutorials/parallel
    tutorials/autocorr
    tutorials/monitor
-
-
-Contributors
-------------
-
-.. include:: ../AUTHORS.rst
+   tutorials/moves
 
 
 License & Attribution
 ---------------------
 
-Copyright 2010-2017 Dan Foreman-Mackey and contributors.
+Copyright 2010-2019 Dan Foreman-Mackey and `contributors <https://github.com/dfm/emcee/graphs/contributors>`_.
 
 emcee is free software made available under the MIT License. For details
 see the ``LICENSE``.
 
 If you make use of emcee in your work, please cite our paper
-(`arXiv <http://arxiv.org/abs/1202.3665>`_,
-`ADS <http://adsabs.harvard.edu/abs/2013PASP..125..306F>`_,
-`BibTeX <http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2013PASP..125..306F&data_type=BIBTEX>`_)
+(`arXiv <https://arxiv.org/abs/1202.3665>`_,
+`ADS <https://ui.adsabs.harvard.edu/abs/2013PASP..125..306F>`_,
+`BibTeX <https://ui.adsabs.harvard.edu/abs/2013PASP..125..306F/exportcitation>`_)
 and consider adding your paper to the :ref:`testimonials` list.
 
 
